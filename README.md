@@ -29,11 +29,11 @@
 
 
 [//]: # (  Images are located at p01-final-project-p01_mccaslinm_rheaj, incase they don't appear)
-  ![](image/Paddle CRC.png)
+  ![](image/PaddleCRC.png)
 
-  ![](image/Ball CRC.png)
+  ![](image/BallCRC.png)
 
-  ![](image/Player CRC.png)
+  ![](image/PlayerCRC.png)
 
 ️**Branches**: This project will **require** effective use of git. 
 
