@@ -25,6 +25,7 @@ class Game:
         self.bg_color = (0, 64, 0)
 
     def title_screen(self):
+        pass
 
 
 
@@ -37,12 +38,20 @@ class Game:
         while self.running:
             # Handle game ending first
             self.screen.fill(self.bg_color)
+            mouse = pygame.mouse.get_pos()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.running = False
 
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if self.width/2 <= mouse[0] <= self.width/2+140 and self.height/2 <= mouse[1] <= height/2+40:
+                        pygame.draw.rect(self.screen, self.color)
+
+
             pygame.display.flip()
         pygame.quit()
+
+
 
 
 def main():
