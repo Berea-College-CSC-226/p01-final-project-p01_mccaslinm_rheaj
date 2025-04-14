@@ -6,6 +6,8 @@
 #######################################################################################
 
 from turtle import *
+
+import pygame
 from pygame import *
 from tkinter import *
 
@@ -31,8 +33,8 @@ from tkinter import *
             self.size = 25
             self.turtle = None
             self.loc =
-            self.u_key = 25
-            self.dwn_key = 28
+            self.u_key = pygame.KEYUP
+            self.dwn_key = pygame.KEYDOWN
 
 
 print(dict.keys())
