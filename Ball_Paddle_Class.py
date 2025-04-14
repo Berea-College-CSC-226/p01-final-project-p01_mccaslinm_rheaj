@@ -32,9 +32,20 @@ from tkinter import *
             self.color = "White"
             self.size = 25
             self.turtle = None
-            self.loc =
-            self.u_key = pygame.KEYUP
-            self.dwn_key = pygame.KEYDOWN
 
 
-print(dict.keys())
+
+
+        def PaddleMovement():
+
+            inputkeys = pygame.key.get_pressed()
+
+            if inputkeys[pygame.KEYUP]:
+                y += speed(5)
+
+            if inputkeys[pygame.KEYDOWN]:
+                y -= speed(5)
+
+
+
+
