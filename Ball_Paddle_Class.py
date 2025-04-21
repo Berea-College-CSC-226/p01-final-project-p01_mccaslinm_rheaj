@@ -50,10 +50,7 @@ class PlayerPaddle(Paddle):
             self.rect.move_ip(0, -3)
         if keys[pygame.K_DOWN]:
             self.rect.move_ip(0, 3)
-        if keys[pygame.K_RIGHT]:
-            self.rect.move_ip(3, 0)
-        if keys[pygame.K_LEFT]:
-            self.rect.move_ip(-3, 0)
+
 
 
 class OpponentPaddle(Paddle):
@@ -67,10 +64,7 @@ class OpponentPaddle(Paddle):
             self.rect.move_ip(0, -3)  # Move up
         if keys[pygame.K_s]:
             self.rect.move_ip(0, 3)  # Move down
-        if keys[pygame.K_d]:
-            self.rect.move_ip(3, 0)  # Move right
-        if keys[pygame.K_a]:
-            self.rect.move_ip(-3, 0)  # Move left
+
 
 
 class Game:
