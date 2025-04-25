@@ -1,7 +1,4 @@
 
-import pygame
-
-    #
     #
     # class Ball():
     #
@@ -33,7 +30,7 @@ class Paddle():
 
 class PlayerPaddle(Paddle):
     def __init__(self, screen, pos: tuple):
-        super().__init__(screen, pos)
+        super().__init__(screen, pos,)
 
     def PaddleMovement(self, keys):
         if keys[pygame.K_UP]:
