@@ -142,7 +142,7 @@ class Ball:
         """
         for paddle in paddles:
             if self.rect.colliderect(paddle.rect):
-                self.x_vel += -1  # Reverse the x velocity (bounce)
+                self.x_vel *= -1  # Reverse the x velocity (bounce)
                 # Add a small offset to prevent the ball from getting stuck in paddle
                 if self.x_vel > 0:
                     self.rect.left = paddle.rect.right
