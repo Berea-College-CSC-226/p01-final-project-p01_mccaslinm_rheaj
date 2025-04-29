@@ -1,9 +1,17 @@
+######################################################################
+# Assignment: Final Project
+#
+# Author(s): Magnus McCaslin & Jaron Rhea
+#
+# Purpose: Contains the classes for the paddle and ball objects
+######################################################################
+
 import pygame
 import random
 import math
 from time import sleep
 
-# --- Constants ---
+# Constants
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
 WHITE = (255, 255, 255)
@@ -12,7 +20,6 @@ PADDLE_WIDTH = 10
 PADDLE_HEIGHT = 100
 PADDLE_SPEED = 8.5
 
-# --- Classes ---
 class Ball:
     def __init__(self, screen):
         """
@@ -28,17 +35,17 @@ class Ball:
 
         # Randomize the initial angle and speed
         self.speed = 9.5  # Set a constant speed
-
-
         self.angle = random.uniform(0, 360 )  # Random angle in degrees (0-360)
-        while self.angle == range(90, 190) or self.angle == range(270, 270):
+        while self.angle == range(80, 120) or self.angle == range(260, 280) or self.angle == range(0, 30) or self.angle == range(330, 360) or self.angle == range(150, 210):
             self.angle = random.uniform(0, 360)
 
         self.x_vel, self.y_vel = self.calculate_velocity() # Calculate initial velocity
 
         # Create a rect for collision detection
-        self.rect = pygame.Rect(self.x - self.radius, self.y - self.radius,
-                                self.radius * 2, self.radius * 2)
+        self.rect = pygame.Rect(self.x - self.radius, self.y - self.radius, self.radius * 2, self.radius * 2)
+
+        self.player_score = 0
+        self.opp_score = 0
 
     def calculate_velocity(self):
         """
@@ -65,6 +72,10 @@ class Ball:
             self.y_vel *= -1  # Reverse y velocity (bounce)
 
         # Check if ball went past left or right edge (point scored)
+        if self.x <= 0:
+            self.opp_score += 1
+        elif self.x >= self.screen.get_width():
+            self.player_score += 1
         if self.x <= 0 or self.x >= self.screen.get_width():
             # Reset ball position
             self.x = self.screen.get_width() // 2
@@ -114,51 +125,3 @@ class Paddle:
 
     def draw(self):
         pygame.draw.rect(self.screen, self.color, self.rect)
-
-# --- Main Game ---
-def main():
-    pygame.init()
-    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-    pygame.display.set_caption("Pong with Random Ball Direction")
-    clock = pygame.time.Clock()
-
-    # Create game objects
-    ball = Ball(screen)
-    paddle1 = Paddle(screen, 10)  # Left paddle
-    paddle2 = Paddle(screen, SCREEN_WIDTH - 10 - PADDLE_WIDTH)  # Right paddle
-    paddles = [paddle1, paddle2]
-
-    running = True
-    while running:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
-
-        # Handle paddle movement (example: using arrow keys)
-        keys = pygame.key.get_pressed()
-        if keys[pygame.K_w]:
-            paddle1.move(-1)  # Move up
-        if keys[pygame.K_s]:
-            paddle1.move(1)   # Move down
-        if keys[pygame.K_UP]:
-            paddle2.move(-1)  # Move up
-        if keys[pygame.K_DOWN]:
-            paddle2.move(1)   # Move down
-
-        # Update game objects
-        ball.update()
-        ball.check_paddle_collision(paddles)
-
-        # Draw everything
-        screen.fill(BLACK)
-        ball.draw()
-        paddle1.draw()
-        paddle2.draw()
-        pygame.display.flip()
-
-        clock.tick(60)  # Limit frame rate to 60 FPS
-
-    pygame.quit()
-
-if __name__ == "__main__":
-    main()

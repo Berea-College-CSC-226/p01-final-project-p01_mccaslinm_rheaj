@@ -1,7 +1,9 @@
 ######################################################################
 # Assignment: Final Project
 #
-# Purpose: Create the class for the button objects
+# Author(s): Magnus McCaslin & Jaron Rhea
+#
+# Purpose: Contains the class for the button objects
 #
 # Acknowledgements: https://www.youtube.com/watch?v=GMBqjxcKogA&t=55s
 ######################################################################
