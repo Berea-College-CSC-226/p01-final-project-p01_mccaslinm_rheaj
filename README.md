@@ -55,6 +55,7 @@ section as you go. DO NOT forget about it!
 
 https://www.geeksforgeeks.org/how-to-create-buttons-in-a-game-using-pygame/
 https://www.youtube.com/watch?v=al_V4OGSvFU
+https://www.101computing.net/pong-tutorial-using-pygame-adding-a-scoring-system/
 
 ---
 

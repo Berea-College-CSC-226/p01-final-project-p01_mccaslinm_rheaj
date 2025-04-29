@@ -5,10 +5,12 @@
 #
 # Acknowledgements: https://www.youtube.com/watch?v=GMBqjxcKogA&t=55s
 ######################################################################
+import pygame
 
 class Button:
     def __init__(self, image, pos: tuple, text_input, font, base_color, hover_color):
         self.image = image
+        pygame.font.init()
         self.posx = pos[0]
         self.posy = pos[1]
         self.font = font
@@ -51,6 +53,7 @@ class Button:
         :param position: where the mouse is
         :return: None
         """
+        pass
         if position[0] in range(self.rect.left, self.rect.right) and position[1] in range(self.rect.top, self.rect.bottom):
             self.text = self.font.render(self.text_input, True, self.hover_color)
         else:
